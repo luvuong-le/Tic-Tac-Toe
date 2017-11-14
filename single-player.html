@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/flexboxgrid.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/game.css">
+    <title>Tic Tac Toe | Single Player</title>
+</head>
+<body>
+    <div class="container">
+        <div class="menu-header">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                    <h1 class="game-title">Tic Tac Toe</h1>
+                </div>
+                <div class="game-home-btn-cont col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                    <a class="homeBtn" href="main-menu.html">Home</a>
+                </div>
+            </div>
+        </div>
+        <div id="game" class="game-body"> 
+            <div class="row">
+                <div class="game-board col-xs-12 col-sm-8 col-md-8 col-lg-8">
+                    <h1>Game Board</h1>
+                    <div id="game-view">
+                            <div class="game-squares" v-for="(square, i) in squares" 
+                            v-on:click="CurrentGame.placeSymbol(i)"
+                            v-bind:class="{highlighted: square.highlightedSquare}"
+                            @mouseover="displaySymbol()">
+                                <span id="gsymbol" class="game-symbol">{{ square.symbol }}</span>
+                            </div>
+                    </div>
+                </div> 
+                <div class="game-status col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                    <h1>Game Status</h1>
+                    <!-- Players Name and Scores -->
+                    <hr/>
+                    <p><strong>Player 1:</strong> {{ player1.name}} </p>
+                    <p><strong>Games Won:</strong> {{ player1.score }}</p> <hr/>
+
+                    <p><strong>AI: </strong> {{ player2.name }} </p>
+                    <p><strong>Games Won:</strong> {{ player2.score }}</p> <hr/>
+
+                    <!-- Current Turn -->
+                    <p><strong>Current Turn:</strong> {{ currentTurn }} </p>
+                    
+                    <!-- Current Turn -->
+                    <p><strong>Winner is:</strong> {{ getWinningPlayer }} </p>
+
+                    <div class="row game-status-btns">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <a class="game-btn" v-on:click="CurrentGame.reset()">Reset Game</a>
+                        </div>
+                    </div>
+
+                </div>    
+            </div>         
+        </div>
+        <div class="menu-footer">
+            <h5>Copyright &copy; Lu-Vuong Le 2017</h5>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="js/GameType.js"></script>
+    <script src="js/Square.js"></script>
+    <script src="js/Player.js"></script>
+    <script src="js/Game.js"></script>
+
+    <script>
+
+        /* Creating a new Game Object and passing in a Player Symbol as Starting Turn */
+        let CurrentGame = new Game(Game.O);
+
+        let vue = new Vue ({
+            el: "#game",
+            data: CurrentGame,
+            computed: {
+                getWinningPlayer: function() {
+                    if (this.winner != null) {
+                        return this.winner;
+                    } else if (this.winner == null && this.squaresFilled == 0) {
+                        return "It's a draw!";
+                    } else {
+                        return "No One Yet!";
+                    }
+                }
+            },
+            methods: {
+                displaySymbol: function() {
+                     return this.currentTurn;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

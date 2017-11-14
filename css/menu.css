@@ -1,0 +1,165 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.container {
+    width: 60%;
+    margin: 0px auto;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    box-shadow: 4px 4px 8px 8px rgba(0, 0, 0, 0.089);
+}
+
+.menu-header {
+    text-align: left; 
+    background-color: #D74D4A;
+    padding: 3px;
+    border-bottom: 5px solid #aaa;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.homeBtn {
+    float: right;
+    padding: 20px;
+    background-color: #5D6;
+    margin: 10px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bolder;
+}
+
+.homeBtn:hover {
+    opacity: 0.5;
+}
+
+.menu-body {
+    background-color: #fff;
+    height: 80vh;
+    border-bottom: 5px solid #aaa;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+}
+
+.menu-footer {
+    background-color: #D74D4A;
+    padding: 3px;
+    color: #fff;
+    text-align: center;
+}
+
+.menu-body a {
+    text-align: center;
+    text-decoration: none;
+    padding: 20px;
+    background-color: #D74D4A;
+    border-radius: 2px;
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 20px;
+    width: 50%;
+    text-transform: uppercase;
+    margin: 5px auto;
+    cursor: pointer;
+}
+
+.menu-body a:hover {
+    opacity: 0.5;
+}
+
+.game-title {
+    padding: 0px 10px;
+}
+
+/* Player Input Fields */
+
+.player-body {
+    background-color: #fff;
+    height: 80vh;
+    border-bottom: 5px solid #aaa;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.player-body input[type="text"] {
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.player-body input[type="submit"] {
+    border: 0;
+    padding: 20px;
+    width: 100%;
+    background-color: #D74D4A;
+    color: #fff;
+    font-weight: bolder;
+    text-transform: uppercase;
+}
+
+.player-body input[type="submit"]:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.player-body a {
+    text-align: center;
+    text-decoration: none;
+    padding: 20px;
+    background-color: #D74D4A;
+    border-radius: 2px;
+    color: #fff;
+    font-weight: bolder;
+    margin-bottom: 20px;
+    width: 27%;
+    text-transform: uppercase;
+    margin: 5px auto;
+}
+
+/* Forms */
+
+#multiplayer-form {
+    display: none;
+}
+
+#single-player-form {
+    display: none;
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 768px) {
+    .container {
+        width: 100%;
+    }
+
+    .homeBtn {
+        float: none;
+    }
+
+    .game-home-btn-cont {
+        text-align: center;
+        margin: 25px 0px;
+    }
+    
+    .game-title {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+
+    .container {
+        width: 100%;
+    }
+
+}
